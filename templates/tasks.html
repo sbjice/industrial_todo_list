@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Existing Tasks</title>
+</head>
+<body>
+<h3>Existing Tasks</h3>
+<div>
+    <table>
+        <tr>
+            <td>Task Id</td>
+            <td>Task Content</td>
+            <td>Task Owner</td>
+            <td>Task Deadline</td>
+            <td>Task Completed</td>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.id }}</td>
+            <td>{{ task.text(size=20) }}</td>
+            <td>{{ task.owner(size=20) }}</td>
+            <td>{{ task.deadline(size=20) }}</td>
+            {% if task.done.data %}
+            <td>Completed</td>
+            {% else %}
+            <td>Pending</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

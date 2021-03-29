@@ -14,7 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-
 class Task(db.Model):
     __tablename__ = "tasks"
     id = db.Column(db.Integer, primary_key=True)
@@ -37,37 +36,41 @@ def create_form_from_task(task: Task):
     return form
 
 
-@app.route('/', methods=["GET"])
-def home():
+def create_existing_tasks_forms():
     tasks = Task.query.all()
-    new_task_form = NewTaskForm()
     task_forms = []
     for task in tasks:
         form = create_form_from_task(task)
         task_forms.append(form)
+    return task_forms
+
+
+@app.route('/', methods=["GET"])
+def home():
+    new_task_form = NewTaskForm()
+    task_forms = create_existing_tasks_forms()
     return render_template('index.html', tasks=task_forms, form=new_task_form)
 
 
-@app.route('/tasks', methods=["GET", "POST"])
+@app.route('/tasks')
 def get_tasks():
+    tasks = create_existing_tasks_forms()
+    return render_template('tasks.html', tasks=tasks)
+
+
+@app.route('/new_task', methods=["POST"])
+def new_task():
     form = NewTaskForm()
     if form.validate_on_submit():
-        print(f"{form.text.data}\n"
-              f"{form.owner.data}\n"
-              f"{form.deadline.data}\n"
-              f"{form.done.data}\n\n")
-
-        new_task = Task(
+        task = Task(
             text=form.text.data,
             owner=form.owner.data,
             deadline=form.deadline.data if form.deadline.data else str(datetime.date.today()),
             done=form.done.data
         )
-
-        db.session.add(new_task)
+        db.session.add(task)
         db.session.commit()
-        return redirect(url_for('home'))
-    return render_template('index.html', form=form)
+    return redirect(url_for('get_tasks'))
 
 
 @app.route('/change_tasks/<int:task_id>', methods=["POST"])

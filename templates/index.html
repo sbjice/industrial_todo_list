@@ -36,7 +36,7 @@
 
 <h3>New Task</h3>
 <div>
-    <form method="POST" action="{{ url_for('get_tasks') }}">
+    <form method="POST" action="{{ url_for('new_task') }}">
         <table>
             <tr>
                 <td>Task Content</td>
@@ -46,6 +46,7 @@
                 <td>Create Task</td>
             </tr>
             <tr>
+            {{ form.csrf_token }}
                 <td>{{ form.text(size=20) }}</td>
                 <td>{{ form.owner(size=20) }}</td>
                 <td>{{ form.deadline(size=20) }}</td>
