@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Existing Tasks</h3>
+<div>
+    {% for task in tasks %}
+        <form method="POST" action="{{ url_for('change_tasks', task_id = task.id.data) }}">
+        {{ task.csrf_token }}
+        {{ task.id }}
+        {{ task.text.label }} {{ task.text(size=20) }}
+        {{ task.owner.label }} {{ task.owner(size=20) }}
+        {{ task.deadline.label }} {{ task.deadline(size=20) }}
+<!--        <input type="submit" value="Go">-->
+        {{ task.done }}
+        {{ task.delete }}
+        {{ task.save }}
+        </form>
+    {% endfor %}
+</div>
+
+<h3>New Task</h3>
+<div>
+    <form method="POST" action="{{ url_for('get_tasks') }}">
+        {{ form.csrf_token }}
+        {{ form.text.label }} {{ form.text(size=20) }}
+        {{ form.owner.label }} {{ form.owner(size=20) }}
+        {{ form.deadline.label }} {{ form.deadline(size=20) }}
+<!--        <input type="submit" value="Go">-->
+        {{ form.done }}
+        {{ form.submit }}
+    </form>
+</div>
+</body>
+</html>
