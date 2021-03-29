@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="orders@195.24.64.20:22 password (1)" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="orders@195.24.64.20:22 password (1)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/todolist" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
