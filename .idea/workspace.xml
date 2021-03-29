@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87f9d2ff-785d-4451-b6cc-db51462b2948" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/tasks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog.db" beforeDir="false" afterPath="$PROJECT_DIR$/blog.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616832003973</updated>
       <workItem from="1616832005070" duration="19494000" />
-      <workItem from="1617005564364" duration="1188000" />
+      <workItem from="1617005564364" duration="1448000" />
     </task>
     <task id="LOCAL-00001" summary="Create basic structure of todo list&#10;Need to add config class&#10;Need to move to architecture&#10;Need to create user class and user table in db related to tasks&#10;Need to add React frontend&#10;Need to add authentication">
       <created>1616999283625</created>
@@ -106,7 +102,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617002560943</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactor index template&#10;Add tasks template&#10;Refactor routing">
+      <created>1617006824992</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617006824992</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add .gitignore&#10;Delete .idea from git structure">
+      <created>1617006952718</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1617006952718</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +138,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create basic structure of todo list&#10;Need to add config class&#10;Need to move to architecture&#10;Need to create user class and user table in db related to tasks&#10;Need to add React frontend&#10;Need to add authentication" />
     <MESSAGE value="Refactor index template&#10;Refactor existing forms&#10;Refactor long functions on template rendering" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor index template&#10;Refactor existing forms&#10;Refactor long functions on template rendering" />
+    <MESSAGE value="Refactor index template&#10;Add tasks template&#10;Refactor routing" />
+    <MESSAGE value="Add .gitignore&#10;Delete .idea from git structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add .gitignore&#10;Delete .idea from git structure" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/todo_with_react_$main.coverage" NAME="main Coverage Results" MODIFIED="1617005571915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
