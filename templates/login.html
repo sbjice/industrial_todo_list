@@ -4,7 +4,7 @@
 <h3>Login</h3>
 
 <div>
-    <form method="POST" action="{{ url_for('login') }}">
+    <form method="POST" action="{{ url_for('tasks_blueprint.login') }}">
     {{ form.csrf_token }}
         <table>
             <tr>

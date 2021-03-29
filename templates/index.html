@@ -15,7 +15,7 @@
         </tr>
         {% for task in tasks %}
         <tr>
-        <form method="POST" action="{{ url_for('change_tasks', task_id = task.id.data) }}">
+        <form method="POST" action="{{ url_for('tasks_blueprint.change_tasks', task_id = task.id.data) }}">
             {{ task.csrf_token }}
             <td>{{ task.id }}</td>
             <td>{{ task.text(size=20) }}</td>
@@ -32,7 +32,7 @@
 
 <h3>New Task</h3>
 <div>
-    <form method="POST" action="{{ url_for('new_task') }}">
+    <form method="POST" action="{{ url_for('tasks_blueprint.new_task') }}">
         <table>
             <tr>
                 <td>Task Content</td>

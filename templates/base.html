@@ -6,10 +6,10 @@
 </head>
 <body>
 <div>
-    <a href="{{ url_for('login') }}">Login</a>
-    <a href="{{ url_for('register') }}">Register</a>
-    <a href="{{ url_for('get_tasks') }}">Tasks</a>
-    <a href="{{ url_for('home') }}">Create Task</a>
+    <a href="{{ url_for('tasks_blueprint.login') }}">Login</a>
+    <a href="{{ url_for('tasks_blueprint.register') }}">Register</a>
+    <a href="{{ url_for('tasks_blueprint.get_tasks') }}">Tasks</a>
+    <a href="{{ url_for('tasks_blueprint.home') }}">Create Task</a>
 </div>
 <div>
     {% block content %}
