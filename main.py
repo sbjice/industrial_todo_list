@@ -14,6 +14,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
+
 class Task(db.Model):
     __tablename__ = "tasks"
     id = db.Column(db.Integer, primary_key=True)
@@ -26,18 +27,25 @@ class Task(db.Model):
 db.create_all()
 
 
+def create_form_from_task(task: Task):
+    form = ExistingTaskForm()
+    form.owner.data = task.owner
+    form.deadline.data = datetime.datetime.strptime(task.deadline, "%Y-%m-%d").date()
+    form.done.data = task.done
+    form.id.data = task.id
+    form.text.data = task.text
+    return form
+
+
 @app.route('/', methods=["GET"])
 def home():
     tasks = Task.query.all()
     new_task_form = NewTaskForm()
-    forms = []
+    task_forms = []
     for task in tasks:
-        form = ExistingTaskForm()
-        for var in vars(task):
-            if not var.startswith('_'):
-                form[var].data = vars(task)[var]
-        forms.append(form)
-    return render_template('index.html', tasks=forms, form=new_task_form)
+        form = create_form_from_task(task)
+        task_forms.append(form)
+    return render_template('index.html', tasks=task_forms, form=new_task_form)
 
 
 @app.route('/tasks', methods=["GET", "POST"])

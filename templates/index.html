@@ -7,31 +7,52 @@
 <body>
 <h3>Existing Tasks</h3>
 <div>
-    {% for task in tasks %}
+    <table>
+        <tr>
+            <td>Task Id</td>
+            <td>Task Content</td>
+            <td>Task Owner</td>
+            <td>Task Deadline</td>
+            <td>Task Completed</td>
+            <td>Delete</td>
+            <td>Save</td>
+        </tr>
+        {% for task in tasks %}
+        <tr>
         <form method="POST" action="{{ url_for('change_tasks', task_id = task.id.data) }}">
-        {{ task.csrf_token }}
-        {{ task.id }}
-        {{ task.text.label }} {{ task.text(size=20) }}
-        {{ task.owner.label }} {{ task.owner(size=20) }}
-        {{ task.deadline.label }} {{ task.deadline(size=20) }}
-<!--        <input type="submit" value="Go">-->
-        {{ task.done }}
-        {{ task.delete }}
-        {{ task.save }}
+            {{ task.csrf_token }}
+            <td>{{ task.id }}</td>
+            <td>{{ task.text(size=20) }}</td>
+            <td>{{ task.owner(size=20) }}</td>
+            <td>{{ task.deadline(size=20) }}</td>
+            <td>{{ task.done }}</td>
+            <td>{{ task.delete }}</td>
+            <td>{{ task.save }}</td>
         </form>
-    {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
 </div>
 
 <h3>New Task</h3>
 <div>
     <form method="POST" action="{{ url_for('get_tasks') }}">
-        {{ form.csrf_token }}
-        {{ form.text.label }} {{ form.text(size=20) }}
-        {{ form.owner.label }} {{ form.owner(size=20) }}
-        {{ form.deadline.label }} {{ form.deadline(size=20) }}
-<!--        <input type="submit" value="Go">-->
-        {{ form.done }}
-        {{ form.submit }}
+        <table>
+            <tr>
+                <td>Task Content</td>
+                <td>Task Owner</td>
+                <td>Task Deadline</td>
+                <td>Task Completed</td>
+                <td>Create Task</td>
+            </tr>
+            <tr>
+                <td>{{ form.text(size=20) }}</td>
+                <td>{{ form.owner(size=20) }}</td>
+                <td>{{ form.deadline(size=20) }}</td>
+                <td>{{ form.done }}</td>
+                <td>{{ form.submit }}</td>
+            </tr>
+        </table>
     </form>
 </div>
 </body>
