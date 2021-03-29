@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from forms import NewTaskForm, ExistingTaskForm
+from forms import NewTaskForm, ExistingTaskForm, RegisterForm
 import datetime
 import os
 
@@ -89,6 +89,15 @@ def change_tasks(task_id):
             task_to_update.done = form.done.data
             db.session.commit()
     return redirect(url_for('home'))
+
+
+# User actions handling
+
+@app.route('/register', methods=["GET", "POST"])
+def register():
+    form = RegisterForm()
+    return render_template('register.html', form=form)
+    # pass
 
 
 if __name__ == "__main__":
