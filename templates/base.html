@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+</head>
+<body>
+<div>
+    <a href="#">login</a>
+    <a href="{{ url_for('get_tasks') }}">Tasks</a>
+    <a href="{{ url_for('home') }}">Create Task</a>
+</div>
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
