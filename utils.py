@@ -2,6 +2,7 @@ from db_interact import Task
 import datetime
 from forms import ExistingTaskForm
 
+
 def create_form_from_task(task: Task):
     form = ExistingTaskForm()
     form.owner.data = task.owner

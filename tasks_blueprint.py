@@ -36,7 +36,7 @@ def new_task():
         )
         db.session.add(task)
         db.session.commit()
-    return redirect(url_for('get_tasks'))
+    return redirect(url_for('tasks_blueprint.get_tasks'))
 
 
 @tasks_blueprint.route('/change_tasks/<int:task_id>', methods=["POST"])
@@ -54,7 +54,7 @@ def change_tasks(task_id):
             task_to_update.deadline = form.deadline.data
             task_to_update.done = form.done.data
             db.session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('tasks_blueprint.home'))
 
 
 # User actions handling
