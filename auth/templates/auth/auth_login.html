@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Login</h3>
+
+<div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <p class="{{ category }}">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form method="POST" action="{{ url_for('auth_blueprint.login') }}">
+    {{ form.csrf_token }}
+        <table>
+            <tr>
+                <td>{{ form.email.label }}</td>
+                <td>{{ form.email(size=20) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label }}</td>
+                <td>{{ form.password(size=20) }}</td>
+            </tr>
+        </table>
+        <td>{{ form.submit }}</td>
+    </form>
+</div>
+
+{% endblock %}

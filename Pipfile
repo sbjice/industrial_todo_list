@@ -9,6 +9,9 @@ flask-sqlalchemy = "*"
 flask-wtf = "*"
 flask-admin = "*"
 flask-datepicker = "*"
+flask-migrate = "*"
+flask-script = "*"
+flask-login = "*"
 
 [dev-packages]
 

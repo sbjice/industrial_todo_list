@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Existing Tasks</h3>
+<div>
+    <table>
+        <tr>
+            <td>Task Id</td>
+            <td>Task Content</td>
+            <td>Task Owner</td>
+            <td>Task Deadline</td>
+            <td>Task Completed</td>
+            <td>Delete</td>
+            <td>Save</td>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+        <form method="POST" action="{{ url_for('tasks_blueprint.change_tasks', task_id = task.id.data) }}">
+            {{ task.csrf_token }}
+            <td>{{ task.id }}</td>
+            <td>{{ task.text(size=20) }}</td>
+            <td>{{ task.owner(size=20) }}</td>
+            <td>{{ task.deadline(size=20) }}</td>
+            <td>{{ task.done }}</td>
+            <td>{{ task.delete }}</td>
+            <td>{{ task.save }}</td>
+        </form>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<h3>New Task</h3>
+<div>
+    <form method="POST" action="{{ url_for('tasks_blueprint.new_task') }}">
+        <table>
+            <tr>
+                <td>Task Content</td>
+                <td>Task Owner</td>
+                <td>Task Deadline</td>
+                <td>Task Completed</td>
+                <td>Create Task</td>
+            </tr>
+            <tr>
+            {{ form.csrf_token }}
+                <td>{{ form.text(size=20) }}</td>
+                <td>{{ form.owner(size=20) }}</td>
+                <td>{{ form.deadline(size=20) }}</td>
+                <td>{{ form.done }}</td>
+                <td>{{ form.submit }}</td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+{% endblock %}}
